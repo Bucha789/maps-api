@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Mapa</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="elements__container">
+      <div class="elements__title">
+        <h1>Rutas</h1>
+      </div>
+      <div class="elements__list">
+        <label>
+          <input type="checkbox" name="trenLigero" id="trenLigero">
+          <span>Línea Tren Ligero</span>
+          <div class="trenLigero"></div>
+        </label>
+        <label>
+          <input type="checkbox" name="macroBus" id="macroBus">
+          <span>Linea Macrobus</span>
+          <div class="macroBus"></div>
+        </label>
+        <label>
+          <input type="checkbox" name="ciclovia" id="ciclovia">
+          <span>ciclovia</span>
+          <div class="ciclovia"></div>
+        </label>
+      </div>
+    </div>
+    <div id="map"></div>
+  </div>
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf8X2ea6NGqd385ohK3mEq2ii2l01EUTc"
+    type="text/javascript"></script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

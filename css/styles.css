@@ -1,0 +1,62 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  /* position: relative; */
+  width: 100%;
+  min-height: 100vh;
+}
+.container {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+.elements__container {
+  position: absolute;
+  z-index: 10;
+  /* margin: 0 auto; */
+  max-width: 250px;
+  top: 200px;
+  left: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.elements__list {
+  margin-top: 10px;
+}
+label {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#map {
+  z-index: 0;
+  margin: 0 auto;
+  margin-top: 0 auto;
+  width: 100%;
+  height: 100vh;
+}
+label > div {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+label > span {
+  margin-left: 10px;
+}
+.trenLigero {
+  background-color: red;
+}
+.macroBus {
+  background-color: #427fed;
+}
+.ciclovia {
+  background-color: #0de04d;
+}
