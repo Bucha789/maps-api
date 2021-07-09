@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 body {
   /* position: relative; */
@@ -18,18 +18,27 @@ body {
   margin: 0 auto;
 }
 .elements__container {
+  background-color: white;
   position: absolute;
   z-index: 10;
-  /* margin: 0 auto; */
   max-width: 250px;
-  top: 200px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 30px;
   text-align: center;
   margin-bottom: 40px;
+  padding: 10px 17px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  border-radius: 2px;
 }
 .elements__list {
   margin-top: 10px;
 }
+.elements__title h1 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 label {
   text-align: left;
   display: flex;
@@ -50,13 +59,26 @@ label > div {
 }
 label > span {
   margin-left: 10px;
+  color: rgb(86,86,86);
 }
 .trenLigero {
   background-color: red;
+  border-radius: 2px;
 }
 .macroBus {
   background-color: #427fed;
+  border-radius: 2px;
 }
 .ciclovia {
   background-color: #0de04d;
+  border-radius: 2px;
+}
+
+@media (max-width: 500px) {
+  .elements__container {
+    top: auto;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
