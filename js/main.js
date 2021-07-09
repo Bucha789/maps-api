@@ -20,7 +20,7 @@ function initMap() {
   Markers.forEach((item) => {
     const marker = new google.maps.Marker({
       title: "marcador",
-      icon: "../images/punto.png",
+      icon: "./images/punto.png",
       position: item.position,
       map: map,
       zIndex: 1,

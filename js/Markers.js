@@ -8,7 +8,7 @@ const Markers = [
                 <div class="contentTxt">
                   <h2>Av. Chapultepec</h2>
                   <div class="contentImg">
-                    <img src="../images/11.jpg" title="Chapultepec" />
+                    <img src="./images/11.jpg" title="Chapultepec" />
                     <a href="http://localhost/ulterior/about"target="_blank">Av. Chapultepec</a>
                 </div>
                 <div class="contentTxt">
@@ -33,7 +33,7 @@ const Markers = [
                 <div class="contentTxt">\
                 <h2>Juarez</h2>\
                 <div class="contentImg">\
-                    <img src="../images/descarga1.jpg " title="Juarez"/>\
+                    <img src="./images/descarga1.jpg " title="Juarez"/>\
                     <a href="http://localhost/ulterior/about">Juarez</a>\
                 </div>\
                 <div class="contentTxt">\

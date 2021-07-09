@@ -25,7 +25,7 @@ export function getCurrentLocation(map) {
       //se manda llamar aquí por el asyncronismo jaja
       let currentLocationMarker = new google.maps.Marker({
         title: "current location",
-        icon: "../images/pin.png",
+        icon: "./images/pin.png",
         position: location,
         map: map,
         zIndex: 1,
