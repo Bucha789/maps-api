@@ -1,7 +1,7 @@
-//este es el objeto donde tienes que metar las rutas, metelas como las ves
+//routes object
 const Directions = {
   trenLigero: [
-    //ahora a cada ruta que agregues le tienes que dar este formato
+    // Ruta 1
     {
       positionA: new google.maps.LatLng(
         20.609974234129677,
@@ -15,9 +15,10 @@ const Directions = {
         suppressInfoWindows: true,
         suppressMarkers: true,
         polylineOptions: { strokeColor: "#ff0000" },
-      }), //objeto que renderizará la ruta
+      }),
       type: "TRANSIT",
     },
+    // Ruta 2
     {
       positionA: new google.maps.LatLng(
         20.662299715444192,
@@ -28,29 +29,26 @@ const Directions = {
         suppressInfoWindows: true,
         suppressMarkers: true,
         polylineOptions: { strokeColor: "#ff0000" },
-      }), //objeto que renderizará la ruta
+      }), 
       type: "TRANSIT",
     },
+    //Ruta 3
     {
-      positionA: new google.maps.LatLng(
-        20.617436840351203,
-        -103.27936086956518
-      ),
+      positionA: new google.maps.LatLng(20.74148564294538, -103.40734348076282),
       positionB: new google.maps.LatLng(
-        20.745130875744206,
-        -103.40753969162017
+        20.623367032744085,
+        -103.28528535339396
       ),
       render: new google.maps.DirectionsRenderer({
         suppressInfoWindows: true,
         suppressMarkers: true,
         polylineOptions: { strokeColor: "#ff0000" },
-      }), //objeto que renderizará la ruta
+      }),
       type: "TRANSIT",
     },
-  ], //supongamos que tienes más rutas, simplemente las agregas como un objeto y ya, el código lo hace por ti todo
+  ],
   macroBus: [
     {
-      //este nombre es importante, tiene que ser igual aqui como en el html. En la etiqueta input el name debe de ser igual a este
       positionA: new google.maps.LatLng(
         20.608865500868287,
         -103.34429025900974
@@ -63,12 +61,12 @@ const Directions = {
         suppressInfoWindows: true,
         hideRouteList: true,
         suppressMarkers: true,
-      }), //a cada ruta hay que agregarle uno para que se renderize indenpendientemente y ademas recuerde quien renderiza para así eliminar también
+      }),
       type: "TRANSIT",
     },
-  ], //este solo tiene una ruta pero como te digo le puedes agregar más y va a funcionar
+  ], 
   ciclovia: [
-    //ahora a cada ruta que agregues le tienes que dar este formato
+    //Ruta 1
     {
       positionA: new google.maps.LatLng(
         20.733907094331027,
@@ -79,9 +77,10 @@ const Directions = {
         suppressInfoWindows: true,
         suppressMarkers: true,
         polylineOptions: { strokeColor: "#0de04d" },
-      }), //objeto que renderizará la ruta
+      }),
       type: "BICYCLING",
     },
+    // Ruta 2
     {
       positionA: new google.maps.LatLng(
         20.715530764708667,
@@ -92,12 +91,10 @@ const Directions = {
         suppressInfoWindows: true,
         suppressMarkers: true,
         polylineOptions: { strokeColor: "#0de04d" },
-      }), //objeto que renderizará la ruta
+      }), 
       type: "BICYCLING",
     },
   ],
 };
 
-export default Directions; // exportarmos las rutas para mandarlas a llamar
-
-//el llenar todo esto a mano te lo puedes evitar con una función constructora XD
+export default Directions;
