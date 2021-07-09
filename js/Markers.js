@@ -33,7 +33,7 @@ const Markers = [
                 <div class="contentTxt">\
                 <h2>Juarez</h2>\
                 <div class="contentImg">\
-                    <img src=" " title="Juarez"/>\
+                    <img src="../images/descarga1.jpg " title="Juarez"/>\
                     <a href="http://localhost/ulterior/about">Juarez</a>\
                 </div>\
                 <div class="contentTxt">\
@@ -51,7 +51,7 @@ const Markers = [
                 <div class="contentTxt">\
                 <h2>Centro Historico</h2>\
                 <div class="contentImg">\
-                    <img src=" " title="Centro Historico"/>\
+                    <img src="../images/descarga2.jpg" title="Centro Historico"/>\
                     <a href="http://localhost/ulterior1/about">Centro Historico</a>\
                 </div>\
                 <div class="contentTxt">\
