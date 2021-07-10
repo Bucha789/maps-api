@@ -36,14 +36,16 @@ function initMap() {
       popup.open({
         anchor: marker,
         map,
-        shouldFocus: false,
+        shouldFocus: true,
       });
+      // console.log(e)
     });
-    marker.addListener("mouseout", () => {
+    popup.addListener("domready", (e) => {
       // no eliminar inmediatamente
-      setTimeout(() => {
-        popup.close();
-      }, 10000); 
+      document.getElementById('contentInfoWindow').parentElement.addEventListener('mouseout', () => {
+        popup.close()
+      })
+        // popup.close();
     });
     //mobile events
     marker.addListener("click", () => {
@@ -54,7 +56,7 @@ function initMap() {
       });
     });
   });
-
+  
 }
 const checkboxs = document.querySelectorAll("input[type=checkbox]");
 
