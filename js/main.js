@@ -1,11 +1,12 @@
 // markers y rutas a mostrar en el mapa
 import Markers from "./Markers.js";
 import Directions from "./Directions.js";
-//funciones 
-import {calcRoute, getCurrentLocation} from './funtions.js';
+//funciones
+import { calcRoute, createMarkers, getCurrentLocation } from "./funtions.js";
 //variable de mapa
 let map;
 //inicializar el mapa
+let currentValue = 1;
 function initMap() {
   const options = {
     zoom: 12,
@@ -18,45 +19,12 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), options);
   //aqui hacemos los marcadores
   Markers.forEach((item) => {
-    const marker = new google.maps.Marker({
-      title: "marcador",
-      icon: "./images/punto.png",
-      position: item.position,
-      map: map,
-      zIndex: 1,
-    });
-    // mostrar infowindows
-    const popup = new google.maps.InfoWindow({
-      content: item.info,
-      zIndex: 10,
-      maxWidth: 250,
-    });
-    //desktop events
-    marker.addListener("mouseover", () => {
-      popup.open({
-        anchor: marker,
-        map,
-        shouldFocus: true,
-      });
-      // console.log(e)
-    });
-    popup.addListener("domready", (e) => {
-      // no eliminar inmediatamente
-      document.getElementById('contentInfoWindow').parentElement.addEventListener('mouseout', () => {
-        popup.close()
-      })
-        // popup.close();
-    });
-    //mobile events
-    marker.addListener("click", () => {
-      popup.open({
-        anchor: marker,
-        map,
-        shouldFocus: false,
-      });
-    });
+      createMarkers(item, map)
+      if (item.type === 'principal') {
+        item.marker.setVisible(true);
+      }
   });
-  
+  currentValue++;
 }
 const checkboxs = document.querySelectorAll("input[type=checkbox]");
 
@@ -68,9 +36,9 @@ checkboxs.forEach((item) => {
         calcRoute(item, map);
       });
     } else {
-      Directions[e.target.name].forEach(item => {
-        item.render.setDirections({routes: []})
-      })
+      Directions[e.target.name].forEach((item) => {
+        item.render.setDirections({ routes: [] });
+      });
     }
   });
 });
@@ -78,5 +46,23 @@ checkboxs.forEach((item) => {
 //cargar mapa cuando la pagina termine de renderizar
 window.onload = initMap();
 
-//obtener ruta actual 
-getCurrentLocation(map)
+//obtener ruta actual
+getCurrentLocation(map);
+
+//puntos por zoom
+map.addListener("zoom_changed", (e) => {
+  if (map.getZoom() >= 14) {
+    Markers.forEach(item => {
+        if (item.type === 'secundario') {
+          item.marker.setVisible(true)
+        }
+    }) 
+  } else {
+    Markers.forEach(item => {
+      if (item.type === 'secundario') {
+        item.marker.setVisible(false)
+      }
+    })
+  }
+});
+Markers
