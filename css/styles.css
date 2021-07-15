@@ -43,6 +43,7 @@ label {
   text-align: left;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 #map {
@@ -61,17 +62,20 @@ label > span {
   margin-left: 10px;
   color: rgb(86,86,86);
 }
+label > span:nth-last-of-type() {
+  justify-self: flex-start;
+}
 .trenLigero {
   background-color: red;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 .macroBus {
   background-color: #427fed;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 .ciclovia {
   background-color: #0de04d;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
 @media (max-width: 500px) {
@@ -81,4 +85,8 @@ label > span {
     left: 50%;
     transform: translateX(-50%);
   }
+}
+/* parte del infowindow */
+.contentMap {
+  /* background-color: rgb(86,86,86); */
 }

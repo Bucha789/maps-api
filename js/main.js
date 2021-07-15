@@ -19,10 +19,10 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), options);
   //aqui hacemos los marcadores
   Markers.forEach((item) => {
-      createMarkers(item, map)
-      if (item.type === 'principal') {
-        item.marker.setVisible(true);
-      }
+    createMarkers(item, map);
+    if (item.type === "principal") {
+      item.marker.setVisible(true);
+    }
   });
   currentValue++;
 }
@@ -52,17 +52,33 @@ getCurrentLocation(map);
 //puntos por zoom
 map.addListener("zoom_changed", (e) => {
   if (map.getZoom() >= 14) {
-    Markers.forEach(item => {
-        if (item.type === 'secundario') {
-          item.marker.setVisible(true)
-        }
-    }) 
-  } else {
-    Markers.forEach(item => {
-      if (item.type === 'secundario') {
-        item.marker.setVisible(false)
+    Markers.forEach((item) => {
+      if (item.type === "secundario") {
+        item.marker.setVisible(true);
       }
-    })
+    });
+  } else {
+    Markers.forEach((item) => {
+      if (item.type === "secundario") {
+        item.marker.setVisible(false);
+      }
+    });
   }
 });
-Markers
+//poligino en los puntos principales
+let value = [
+  { lat: 20.6800621, lng: -103.3406969 },
+  { lat: 20.663192, lng: -103.340489 },
+  { lat: 20.662751, lng: -103.383694 },
+  { lat: 20.689792, lng: -103.386444 },
+  { lat: 20.6800621, lng: -103.3406969 },
+];
+let poligon = new google.maps.Polygon({
+  paths: value,
+  strokeColor: "#FF0000",
+  strokeOpacity: 0.8,
+  strokeWeight: 2,
+  fillColor: "#FF0000",
+  fillOpacity: 0.25,
+});
+poligon.setMap(map);
