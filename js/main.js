@@ -47,8 +47,26 @@ checkboxs.forEach((item) => {
 window.onload = initMap();
 
 //obtener ruta actual
-getCurrentLocation(map);
+setInterval(() => {
+  getCurrentLocation(map);
+},10000)
 
+//poligino en los puntos principales
+let value = [
+  { lat: 20.689584, lng: -103.333458},
+  { lat: 20.664345, lng: -103.333144 },
+  { lat: 20.662192, lng: -103.376659},
+  { lat: 20.688473, lng: -103.375971},
+  { lat: 20.689584, lng: -103.333458},
+];
+let poligon = new google.maps.Polygon({
+  paths: value,
+  strokeColor: "#00ff",
+  strokeOpacity: 0.8,
+  strokeWeight: 2,
+  fillColor: "#00ff",
+  fillOpacity: 0,
+});
 //puntos por zoom
 map.addListener("zoom_changed", (e) => {
   if (map.getZoom() >= 14) {
@@ -57,28 +75,15 @@ map.addListener("zoom_changed", (e) => {
         item.marker.setVisible(true);
       }
     });
+    //poligono
+    poligon.setMap(null)
   } else {
     Markers.forEach((item) => {
       if (item.type === "secundario") {
         item.marker.setVisible(false);
       }
     });
+    //poligono
+    poligon.setMap(map);
   }
 });
-//poligino en los puntos principales
-let value = [
-  { lat: 20.6800621, lng: -103.3406969 },
-  { lat: 20.663192, lng: -103.340489 },
-  { lat: 20.662751, lng: -103.383694 },
-  { lat: 20.689792, lng: -103.386444 },
-  { lat: 20.6800621, lng: -103.3406969 },
-];
-let poligon = new google.maps.Polygon({
-  paths: value,
-  strokeColor: "#FF0000",
-  strokeOpacity: 0.8,
-  strokeWeight: 2,
-  fillColor: "#FF0000",
-  fillOpacity: 0.25,
-});
-poligon.setMap(map);

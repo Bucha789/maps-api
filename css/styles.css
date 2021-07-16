@@ -43,7 +43,6 @@ label {
   text-align: left;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 10px;
 }
 #map {
@@ -88,5 +87,40 @@ label > span:nth-last-of-type() {
 }
 /* parte del infowindow */
 .contentMap {
-  /* background-color: rgb(86,86,86); */
+  background-color: rgb(86,86,86);
+  height: 250px;
+  color: white;
+  scrollbar-base-color: rgb(86,86,86);
+}
+.gm-style-iw.gm-style-iw-c {
+  background-color: rgb(86,86,86);
+  scrollbar-base-color: rgb(86,86,86);
+}
+.gm-style-iw-d {
+  scrollbar-base-color: rgb(86,86,86);
+  background-color: rgb(86,86,86);
+}
+.gm-style-iw-d::-webkit-scrollbar {
+  border-radius: 20px;
+  background-color: rgba(255,255,255,0.1)!important;
+}
+.gm-style-iw-d::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.2)!important;
+}
+.gm-style-iw-d::-webkit-scrollbar {
+  border-radius: 20px;
+  background-color: rgba(255,255,255,0.1);
+}
+.gm-style-iw-d::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.2);
+}
+.contentMap::-webkit-scrollbar {
+  border-radius: 20px;
+  background-color: rgba(255,255,255,0.1);
+}
+.contentMap::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.2);
+}
+.contentMap::-webkit-scrollbar-track {
+  background-color: rgba(255,255,255,0.2);
 }

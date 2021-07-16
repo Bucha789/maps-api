@@ -15,7 +15,9 @@ export function calcRoute({ positionA, positionB, render, type }, map) {
   });
 }
 //funcion para encontrar la current location
+let currentLocation;
 export function getCurrentLocation(map) {
+  console.log('funcion cargada');
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       let location = {
@@ -23,7 +25,7 @@ export function getCurrentLocation(map) {
         lng: position.coords.longitude,
       };
       //se manda llamar aquí por el asyncronismo jaja
-      let currentLocation = new google.maps.Marker({
+      currentLocation = new google.maps.Marker({
         title: "current location",
         icon: "./images/pin.png",
         position: location,
@@ -50,7 +52,7 @@ export function createMarkers(item, map) {
   item.popup = new google.maps.InfoWindow({
     content: item.info,
     zIndex: 10,
-    maxWidth: 250,
+    maxWidth: 300,
   });
   //desktop events
   item.marker.addListener("mouseover", () => {
@@ -83,8 +85,8 @@ export function createMarkers(item, map) {
   });
   //mobile events
   item.marker.addListener("click", () => {
-    popup.open({
-      anchor: marker,
+    item.popup.open({
+      anchor: item.marker,
       map,
       shouldFocus: false,
     });
