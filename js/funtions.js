@@ -63,26 +63,18 @@ export function createMarkers(item, map) {
     });
     // console.log(e)
   });
+    //eliminar infowindow con el mismo infowindow
   item.popup.addListener("domready", (e) => {
     // no eliminar inmediatamente
-    // var infoWindowElement = document.querySelector(".gm-style .gm-style-iw");
-    // infoWindowElement.addEventListener("mouseout", (e) => {
-    // console.log(e.target.classList());
-    // debugger
-    //   if (
-    //     // (!e.target.classList.contains("contentTxt")) ||
-    //     // (!e.target.classList.contains("contentImg")) ||
-    //     (!e.target.nodeName === "P") ||
-    //     (!e.target.nodeName === "H2") ||
-    //     (!e.target.nodeName === "IMG") ||
-    //     (!e.target.nodeName === "DIV")
-    //     ) {
-    //     console.log(e.target.nodeName === 'DIV');
-    //     popup.close();
-    //   }
-    // });
-    // console.log(infoWindowElement);
-  });
+    var infoWindowElement = document.querySelector(".gm-style-iw-d");
+    setTimeout(() => {
+      infoWindowElement.addEventListener('mouseout', (e) => {
+        if (e.target === infoWindowElement) {
+          item.popup.close()
+        }
+      })
+    },1000)
+  })
   //mobile events
   item.marker.addListener("click", () => {
     item.popup.open({
