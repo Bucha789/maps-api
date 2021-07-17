@@ -66,10 +66,14 @@ export function createMarkers(item, map) {
     //eliminar infowindow con el mismo infowindow
   item.popup.addListener("domready", (e) => {
     // no eliminar inmediatamente
+    //elementos que son los ultimos que salen con el mouseout
+    var contentMapElement = document.querySelector('.gm-style-iw.gm-style-iw-c');
+    var titleElement = document.querySelector('.contentTxt > h2')
     var infoWindowElement = document.querySelector(".gm-style-iw-d");
     setTimeout(() => {
-      infoWindowElement.addEventListener('mouseout', (e) => {
-        if (e.target === infoWindowElement) {
+      contentMapElement.addEventListener('mouseout', (e) => {
+        console.log(e.target)
+        if (e.target === infoWindowElement || e.target === contentMapElement || e.target === titleElement) {
           item.popup.close()
         }
       })
