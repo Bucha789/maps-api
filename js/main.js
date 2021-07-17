@@ -6,11 +6,11 @@ import { calcRoute, createMarkers, getCurrentLocation } from "./funtions.js";
 //variable de mapa
 let map;
 //inicializar el mapa
-let currentValue = 1;
+
 function initMap() {
   const options = {
-    zoom: 12,
-    center: new google.maps.LatLng(20.62975803818514, -103.34718294688588),
+    zoom: 13,
+    center: new google.maps.LatLng(20.674457, -103.357756),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapId: "9da2dff3f618f30f",
     clickableIcons: true,
@@ -24,7 +24,7 @@ function initMap() {
       item.marker.setVisible(true);
     }
   });
-  currentValue++;
+
 }
 const checkboxs = document.querySelectorAll("input[type=checkbox]");
 
@@ -53,37 +53,43 @@ setInterval(() => {
 
 //poligino en los puntos principales
 let value = [
-  { lat: 20.689584, lng: -103.333458},
-  { lat: 20.664345, lng: -103.333144 },
-  { lat: 20.662192, lng: -103.376659},
-  { lat: 20.688473, lng: -103.375971},
-  { lat: 20.689584, lng: -103.333458},
+  { lat: 20.679619057168072, lng: -103.33874617889997},
+  { lat: 20.678294091641014, lng: -103.33801661807401},
+  { lat: 20.675403217622815, lng: -103.3378449567032},
+  { lat: 20.67419867053551, lng: -103.33900367095622},
+  { lat: 20.674038063535193, lng: -103.37114726264176},
+  { lat: 20.67543245822409, lng: -103.37223502019283},
+  { lat: 20.677274353655744, lng: -103.37217909179707},
+  { lat: 20.678735748101698, lng: -103.37088977058553},
 ];
 let poligon = new google.maps.Polygon({
   paths: value,
-  strokeColor: "#00ff",
+  strokeColor: "#000f",
   strokeOpacity: 0.8,
   strokeWeight: 2,
-  fillColor: "#00ff",
+  fillColor: "#000f",
   fillOpacity: 0,
 });
+poligon.setMap(map);
 //puntos por zoom
-map.addListener("zoom_changed", (e) => {
+map.addListener("zoom_changed", () => {
   if (map.getZoom() >= 14) {
     Markers.forEach((item) => {
       if (item.type === "secundario") {
         item.marker.setVisible(true);
       }
     });
-    //poligono
-    poligon.setMap(null)
   } else {
     Markers.forEach((item) => {
       if (item.type === "secundario") {
         item.marker.setVisible(false);
       }
     });
-    //poligono
-    poligon.setMap(map);
+  }
+  //condiciones del zoom
+  if (map.getZoom() >= 13) {
+    poligon.setMap(map)
+  } else {
+    poligon.setMap(null)
   }
 });
